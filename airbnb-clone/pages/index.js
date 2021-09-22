@@ -10,7 +10,7 @@ export default function Home({exploreData, cardsData}) {
     return (
       <div className="">
         <Head>
-          <title>JBBnB </title>
+          <title>JBBnB</title>
           <link rel="icon" href="/favicon.ico" />
         </Head>
         
