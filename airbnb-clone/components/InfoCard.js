@@ -3,7 +3,7 @@ import { HeartIcon } from '@heroicons/react/outline';
 import { StarIcon } from '@heroicons/react/solid';
 
 function InfoCard({img,location,description,title,price,star,total}) {
-    
+
     return (
         <div className='flex py-7 px-2 pr-4 border-b cursor-pointer hover:opacity-80 
         hover:shadow-lg transition duration-200 ease-out first:border-t' >
@@ -12,6 +12,7 @@ function InfoCard({img,location,description,title,price,star,total}) {
                     src={img}
                     layout='fill'
                     objectFit='cover'
+                    className='rounded-2xl'
                 />
             </div>
             <div className='flex flex-col flex-grow pl-5'>

@@ -44,19 +44,25 @@ function Search({ searchResults }) {
                     demo case we just use the img as the key */}
 
                     <div className='flex flex-col'>
-                        {searchResults.map(({img,location, title, description, star, price, total}) => (
-                        <InfoCard
-                            key={img}
-                            img={img}
-                            location={location}
-                            title={title}
-                            description={description}
-                            star={star}
-                            price={price}
-                            total={total}
+                        {searchResults.map(({img,location, title, description, star, price, total}) => {
+                            // Changed output of location and title to change based on user query
+                            // as API originally returned only London
+                            location = `Private room in the center of ${router.query.location}`
+                            title = title.replace('London',`${router.query.location}`)
+                            return ( 
+                            <InfoCard
+                                key={img}
+                                img={img}
+                                location={location}
+                                title={title}
+                                description={description}
+                                star={star}
+                                price={price}
+                                total={total}
 
-                        />
-                    ))}
+                            />
+                            )
+                        })}
                     </div>
                 </section>
 
