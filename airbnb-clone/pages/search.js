@@ -46,9 +46,11 @@ function Search({ searchResults }) {
                     <div className='flex flex-col'>
                         {searchResults.map(({img,location, title, description, star, price, total}) => {
                             // Changed output of location and title to change based on user query
-                            // as API originally returned only London
+                            // as API originally returned only London as well as price to be Dollars not Pounds
                             location = `Private room in the center of ${router.query.location}`
                             title = title.replace('London',`${router.query.location}`)
+                            price = price.replace('£','$')
+                            total = total.replace('£','$')
                             return ( 
                             <InfoCard
                                 key={img}
