@@ -2,6 +2,9 @@ import { useState } from 'react';
 import ReactMapGL, { Marker, Popup } from 'react-map-gl';
 import { getCenter } from 'geolib';
 
+
+
+
 function Map({ searchResults }) {
 
     const [selectedLocation, setSelectedLocation] = useState({});
@@ -20,7 +23,7 @@ function Map({ searchResults }) {
         height: '100%',
         latitude: center.latitude,
         longitude: center.longitude,
-        zoom: 11,
+        zoom: 12,
     });
 
     return (
@@ -31,6 +34,8 @@ function Map({ searchResults }) {
             onViewportChange={(nextViewport) => {
                 setViewport(nextViewport);
             }}
+            // className='sticky -mb-[40vh]'
+            style={{padding:'0', background:'transparent'}}
         >
             {searchResults.map( (result) => (
                 <div key={result.long}>
@@ -41,11 +46,11 @@ function Map({ searchResults }) {
                         offsetTop={-10}
                     >
                         <p
-                            className='cursor-pointer text-2xl'
+                            className='cursor-pointer text-2xl w-5 z-0'
                             onClick={() => setSelectedLocation(result)}  
-                            aria-label='rounded-push-pin'  
+                            aria-label='push-pin'  
                         >
-                            📍
+                            📌
                         </p>
                     </Marker>
 
@@ -56,9 +61,10 @@ function Map({ searchResults }) {
                             closeOnClick={true}
                             latitude={result.lat}
                             longitude={result.long}
-                            className='background-none'
+                            className='z-50'
+    
                         >
-                            <div className='flex h-10 items-center rounded-full'>
+                            <div className='px-4 py-1.5 rounded-xl bg-white '>
                                 {result.title}
                             </div>
                         </Popup>

@@ -8,3 +8,16 @@
         transform duration-100 ease-out
     }
 }
+
+.mapboxgl-popup-content{
+    padding:0px;
+    background: none;
+    background-color: transparent;
+    box-shadow: none;
+    border-radius: 1rem;
+}
+
+.mapboxgl-popup-close-button {
+    padding-right:2px;
+}
+
