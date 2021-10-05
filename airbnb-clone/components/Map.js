@@ -1,6 +1,9 @@
 import { useState } from 'react';
 import ReactMapGL, { Marker, Popup } from 'react-map-gl';
 import { getCenter } from 'geolib';
+import Image from 'next/image';
+import { HeartIcon } from '@heroicons/react/outline';
+import { StarIcon } from '@heroicons/react/solid';
 
 
 
@@ -23,7 +26,7 @@ function Map({ searchResults }) {
         height: '100%',
         latitude: center.latitude,
         longitude: center.longitude,
-        zoom: 12,
+        zoom: 11,
     });
 
     return (
@@ -61,11 +64,30 @@ function Map({ searchResults }) {
                             closeOnClick={true}
                             latitude={result.lat}
                             longitude={result.long}
-                            className='z-50'
+                            className=' z-50'
     
                         >
-                            <div className='px-4 py-1.5 rounded-xl bg-white '>
-                                {result.title}
+                            <div className='relative min-w-[300px] bg-white rounded-2xl'>
+                                <div>
+                                        <img src={result.img} className='w-full object-cover z-50 h-48 rounded-xl rounded-b-none mb-3 image'/>
+                                </div>
+                                <div>
+                                    <p className="cursor-pointer flex items-center px-2 font-light">
+                                        <StarIcon className="h-4 text-red-500 mr-1 " />
+                                        {result.star}
+                                    </p>
+                                </div>
+                                <h3 className='text-lg font-light text-black px-3 mb-2'>{result.title}</h3>
+                                <div className="flex justify-between items-center px-2 py-2">
+                                    <div>
+                                        <p className="text-xl text-black font-md px-1">{result.price.replace('£', '$')}</p>
+                                        {/* <p className="cursor-pointer flex items-center">
+                                            <StarIcon className="h-4 text-red-500 mr-1" />
+                                            {result.star}
+                                        </p> */}
+                                    </div>
+                                    <HeartIcon className="cursor-pointer h-7 text-red-600" />
+                                </div>
                             </div>
                         </Popup>
                     ):(
