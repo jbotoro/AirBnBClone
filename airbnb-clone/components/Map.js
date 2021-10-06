@@ -47,13 +47,15 @@ function Map({ searchResults }) {
                         longitude={result.long}
                         offsetLeft={-20}
                         offsetTop={-10}
+                        className=''
                     >
                         <p
-                            className='cursor-pointer text-2xl w-5 z-0'
+                            className='cursor-pointer text-sm  z-0 bg-red-400 text-white rounded-lg px-1 py-1 shadow-sm'
                             onClick={() => setSelectedLocation(result)}  
                             aria-label='push-pin'  
                         >
-                            📌
+                            {/* 📌 */}
+                            {result.price.replace('£','$').split('/')[0]}
                         </p>
                     </Marker>
 
@@ -64,10 +66,10 @@ function Map({ searchResults }) {
                             closeOnClick={true}
                             latitude={result.lat}
                             longitude={result.long}
-                            className=' z-50'
+                            className='z-50'
     
                         >
-                            <div className='relative min-w-[300px] bg-white rounded-2xl'>
+                            <div className='relative min-w-[300px] bg-white rounded-2xl shadow-lg hover:shadow-xl transition duration 200 ease-out'>
                                 <div>
                                         <img src={result.img} className='w-full object-cover z-50 h-48 rounded-xl rounded-b-none mb-3 image'/>
                                 </div>

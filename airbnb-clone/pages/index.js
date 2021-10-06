@@ -12,14 +12,15 @@ export default function Home({exploreData, cardsData}) {
         <Head>
           <title>JBBnB</title>
           <link rel="icon" href="/favicon.ico" />
+          
         </Head>
         
         <Header />
         <Banner />
         { /* Main */ }
 
-        <main className='max-w-7xl mx-auto px-8 sm:px-16'>
-          <section className='pt-6'>
+        <main className='max-w-5xl mx-auto px-8 sm:px-16'>
+          <section className='py-6 shadow-sm px-6 rounded-xl mt-4 hover:shadow-lg hover:opacity-95 transition translate duration-300 ease-out'>
             <h2 className='text-4xl font-semibold pb-5'> Explore Nearby </h2>
 
             {/* Pull data from server - API endpoints */}
@@ -35,7 +36,7 @@ export default function Home({exploreData, cardsData}) {
             </div>
           </section>
 
-          <section>
+          <section className='shadow-sm px-6 py-6 rounded-xl hover:shadow-lg hover:opacity-95 transition translate duration-300 ease-out'>
             <h2 className='text-4xl font-semibold py-8'>Live Anywhere </h2>
             <div className='flex space-x-3 overflow-scroll scrollbar-hide p-3 -ml-3'>
               {cardsData.map(({img,title}) => (
@@ -68,10 +69,13 @@ export default function Home({exploreData, cardsData}) {
       (res) => res.json()
     )
 
+ 
+    
+
     return {
       props: {
         exploreData,
-        cardsData
+        cardsData,
       }
     }
   }

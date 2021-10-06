@@ -21,7 +21,9 @@ function Search({ searchResults }) {
         
             <main className='flex'>
                 <section className='flex-grow pt-14 px-6 lg:justify-around'>
-                    <p className='text-xs'>300+ Stays in {location} - {range} - for {numGuests} guests</p>
+                    <p className='text-xs'>300+ Stays in {location} - 
+                        <span className='bg-red-400 mx-1 px-1 py-1 text-white rounded-md'>{formattedStartDate}</span> - <span className='bg-red-400 mx-1 px-1 py-1 text-white rounded-md'>{formattedEndDate}</span>
+                        - for {numGuests} guests</p>
                     <h1 className='text-3xl font-semibold mt-2 mb-6'> Stays in {location} </h1>
                     <div className='hidden lg:inline-flex mb-5 space-x-3 text-gray-800 whitespace-nowrap'>
                         {/* Button styling was lengthy and reusable for all 
