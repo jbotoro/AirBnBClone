@@ -37,7 +37,6 @@ function Map({ searchResults }) {
             onViewportChange={(nextViewport) => {
                 setViewport(nextViewport);
             }}
-            // className='sticky -mb-[40vh]'
             style={{padding:'0', background:'transparent'}}
         >
             {searchResults.map( (result) => (
@@ -54,7 +53,6 @@ function Map({ searchResults }) {
                             onClick={() => setSelectedLocation(result)}  
                             aria-label='push-pin'  
                         >
-                            {/* 📌 */}
                             {result.price.replace('£','$').split('/')[0]}
                         </p>
                     </Marker>
@@ -83,10 +81,6 @@ function Map({ searchResults }) {
                                 <div className="flex justify-between items-center px-2 py-2">
                                     <div>
                                         <p className="text-xl text-black font-md px-1">{result.price.replace('£', '$')}</p>
-                                        {/* <p className="cursor-pointer flex items-center">
-                                            <StarIcon className="h-4 text-red-500 mr-1" />
-                                            {result.star}
-                                        </p> */}
                                     </div>
                                     <HeartIcon className="cursor-pointer h-7 text-red-600" />
                                 </div>
